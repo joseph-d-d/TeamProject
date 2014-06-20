@@ -1,0 +1,101 @@
+	Alpha Centauri A
+	Vega
+	Betelgeuse
+	Alpha Centauri B
+	Sirius
+	Hadar
+	Arcturus
+	Capella
+	Altair
+	Adhara
+	Canopus
+	Regulus
+	Antares
+	Aldebaran
+	Castor
+	Spica
+	Deneb
+	Acrux
+	Rigel
+	Procyon
+	Pollux
+	Fomalhaut
+	Achernar
+	Gacrux
+	Becrux
+Here are the HashTable stats:
+
+*** List initialized ***
+Inserting Acrux...
+	The key is 30
+Inserting Altair...
+	The key is 11
+Inserting Sirius...
+	The key is 6
+Inserting Betelgeuse...
+	The key is 4
+Inserting Becrux...
+	Collision! Key 30 already exists in the Hash Table
+	New bucket will be created with number 30
+Inserting Aldebaran...
+	The key is 20
+Inserting Vega...
+	The key is 1
+Inserting Castor...
+	The key is 23
+Inserting Spica...
+	The key is 26
+Inserting Hadar...
+	The key is 7
+Inserting Capella...
+	The key is 9
+Inserting Arcturus...
+	The key is 8
+Inserting Regulus...
+	The key is 18
+Inserting Achernar...
+	Collision! Key 26 already exists in the Hash Table
+	New bucket will be created with number 26
+Inserting Alpha Centauri A...
+	The key is 0
+Inserting Rigel...
+	Collision! Key 7 already exists in the Hash Table
+	New bucket will be created with number 7
+Inserting Canopus...
+	The key is 14
+Inserting Antares...
+	The key is 19
+Inserting Pollux...
+	Collision! Key 18 already exists in the Hash Table
+	New bucket will be created with number 18
+Inserting Fomalhaut...
+	Collision! Key 23 already exists in the Hash Table
+	New bucket will be created with number 23
+Inserting Deneb...
+	The key is 28
+Inserting Alpha Centauri B...
+	The key is 5
+Inserting Adhara...
+	The key is 12
+Inserting Procyon...
+	Collision! Key 14 already exists in the Hash Table
+	New bucket will be created with number 14
+Inserting Gacrux...
+	Collision! Key 26 already exists in the Hash Table
+	Gacrux is now in bucket 26
+
+Total amount of elements: 25
+
+Main HashTable size: 31
+	Used elements: 18	(Load factor: 58%)
+
+Number of buckets: 6
+	Bucket with key 7 has 1 elements out of 4	(Load factor: 25%)
+	Bucket with key 14 has 1 elements out of 4	(Load factor: 25%)
+	Bucket with key 18 has 1 elements out of 4	(Load factor: 25%)
+	Bucket with key 23 has 1 elements out of 4	(Load factor: 25%)
+	Bucket with key 26 has 2 elements out of 4	(Load factor: 50%)
+	Bucket with key 30 has 1 elements out of 4	(Load factor: 25%)
+Full buckets: 0
+
+Total collisions while buiding the list: 7
