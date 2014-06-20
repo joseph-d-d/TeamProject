@@ -86,10 +86,7 @@ int main()
 			break;
 		case DELETE:
 			displayBoarder();
-			if (deleteData(list.hashTable, list.bsTree))
-			{
-				cout << "Data deleted" << endl;
-			}
+			deleteData(list.hashTable, list.bsTree);
 			displayBoarder();
 			break;
 		case SEARCH:
@@ -362,14 +359,21 @@ void removeLeadingWhiteSpace(string& str)
  =====================================*/
 bool deleteData(HashTable *hashTable, BinarySearchTree *bsTree)
 {
+	UserInput input;
 	Data star;
 	string target;
 	cout << "Enter value to be deleted ";
-	cin >> target;
-
-
-	bsTree->deleteValue(target, star);
-	hashTable->deleteValue(hashTable->searchForKey(target));
+	input.readInString(target);
+	cout << endl;
+	//hashTable->deleteValue(hashTable->searchForKey(target));
+	if (bsTree->deleteValue(target))
+	{
+		cout << "[" << target << "]" << " has been deleted" << endl;
+	}
+	else
+	{
+		cout << "[" <<  target << "]" << " does not exist in data base." << endl;
+	}
 	return true;
 
 }

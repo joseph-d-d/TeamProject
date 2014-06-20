@@ -312,8 +312,9 @@ bool HashTable::deleteValue(Star * value)
 	// the main table is identical to the paramenter value,
 	// delete it
 	if (table[key] == value) {
+		/*
 		delete table[key];
-        
+        */
         table[key] = NULL;
 
 		// Decrease the size of the Hash Table

@@ -108,17 +108,14 @@ Search a BST for a given target: if found, returns true and passes back
 data, otherwise returns false. It calls the private _search to locate the node.
 *~**/
 
-bool BinarySearchTree::deleteValue(string target, Data &data)
+bool BinarySearchTree::deleteValue(string target)
 {
-	BST_Node *found = _deleteValue(target);
-	/*
-	if (found)
+	bool deleted = _deleteValue(target);
+	if (deleted)
 	{
-		data = found->data;
 		return true;
 	}
-	*/
-	return true;
+	return false;
 }
 
 
@@ -129,7 +126,7 @@ Locates the node that contains a given target in a BST:
 - if not found returns NULL
 *~**/
 
-BinarySearchTree::BST_Node* BinarySearchTree::_deleteValue(string target)
+bool BinarySearchTree::_deleteValue(string target)
 {
 	if (!root) // tree is empty
 		return NULL;
@@ -137,6 +134,7 @@ BinarySearchTree::BST_Node* BinarySearchTree::_deleteValue(string target)
 	// tree is not empty
 	BST_Node *pWalk = root;
 	BST_Node *temp = pWalk;
+	Star starCopy;
 	BST_Node *parent = pWalk;
 	while (pWalk)
 	{
@@ -170,7 +168,7 @@ BinarySearchTree::BST_Node* BinarySearchTree::_deleteValue(string target)
 						{
 							parent->right = NULL;
 						}
-						//pWalk = NULL;
+						delete pWalk;
 					}
 					//if the node has one child
 					else if ((pWalk->left != NULL && pWalk->right == NULL) || (pWalk->right != NULL && pWalk->left == NULL))
@@ -187,7 +185,7 @@ BinarySearchTree::BST_Node* BinarySearchTree::_deleteValue(string target)
 								parent->right = pWalk->left;
 							}
 
-							//pWalk = NULL;
+							delete pWalk;
 						}
 						else
 						{
@@ -199,7 +197,7 @@ BinarySearchTree::BST_Node* BinarySearchTree::_deleteValue(string target)
 							{
 								parent->left = pWalk->right;
 							}
-							//pWalk = NULL;
+							delete pWalk;
 						}
 					}
 					//if the node has two children
@@ -211,21 +209,23 @@ BinarySearchTree::BST_Node* BinarySearchTree::_deleteValue(string target)
 							temp = pWalk;
 							pWalk = pWalk->left;
 						}
+
 						parent->data.starPtr->setRank(pWalk->data.starPtr->getRank());
 						parent->data.starPtr->setType(pWalk->data.starPtr->getType());
 						parent->data.starPtr->setName(pWalk->data.starPtr->getName());
 						parent->data.starPtr->setMagnitude(pWalk->data.starPtr->getMagnitude());
 						parent->data.starPtr->setConstellation(pWalk->data.starPtr->getConstellation());
-						//pWalk = NULL;
-						//temp->left = NULL;
+
+						delete pWalk;
+						temp->left = NULL;
 					}
 				}
-				return pWalk; // found
+				return true; // found
 			}
 		}
 	}
 
-	return NULL; // not found
+	return false; // not found
 }
 
 void BinarySearchTree::indented()

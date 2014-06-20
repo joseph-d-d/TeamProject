@@ -39,7 +39,7 @@ public:
 
 	// Binary Tree operations
 	void BST_insert(Data dataIn);
-	bool deleteValue(string target, Data &data);
+	bool deleteValue(string target);
 	void BST_InorderTraverse() const;
 	void BST_PreorderTraverse() const;
 	void BST_PostorderTraverse() const;
@@ -51,7 +51,7 @@ public:
 	void _indented(BST_Node *current, int indent);
 
 private:
-	BST_Node *_deleteValue(string target);
+	bool _deleteValue(string target);
 	void _BST_InorderTraverse(BST_Node *root) const;
 	void _BST_PreorderTraverse(BST_Node *root) const;
 	void _BST_PostorderTraverse(BST_Node *root) const;

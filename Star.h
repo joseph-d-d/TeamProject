@@ -19,6 +19,7 @@ const string DEFAULT = "Unknown";
 // Star Class
 class Star {
 private:
+	bool deleteStar;
 	string name;
 	int rank;
 	double magnitude;
@@ -27,11 +28,13 @@ private:
 
 public:
 	// Constructors
-	Star() : name(DEFAULT), rank(0), magnitude(0.0), type(DEFAULT), constellation(DEFAULT){};
-	Star(double m) : name(DEFAULT), rank(0), magnitude(m), type(DEFAULT), constellation(DEFAULT){};
-	Star(int r, string n, double m, string t, string c) : name(n), rank(r), magnitude(m), type(t), constellation(c){};
+	Star() : deleteStar(false), name(DEFAULT), rank(0), magnitude(0.0), type(DEFAULT), constellation(DEFAULT){};
+	Star(double m) : deleteStar(false), name(DEFAULT), rank(0), magnitude(m), type(DEFAULT), constellation(DEFAULT){};
+	Star(int r, string n, double m, string t, string c) : deleteStar(false), name(n), rank(r), magnitude(m), type(t), constellation(c){};
 
 	// Setters and getters
+	bool getDeleteStar(){ return deleteStar; }
+	void setDeleteStar(bool d){ deleteStar = d; }
 	string getName() { return name; }
 	void setName(string n) { name = n; }
 	int getRank(){ return rank; }
