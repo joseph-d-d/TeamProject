@@ -1,3 +1,4 @@
+//Joseph Dollahon
 // Implementation file for the BST class
 #include <iostream>  // For cout and NULL
 #include "BinarySearchTree.h"

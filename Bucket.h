@@ -61,7 +61,6 @@ bool Bucket::insertValue(Star * value)
 			// If the number of current elements identical to the
 			// bucket size, set the full flag to true
 			if (numElements == BUCKET_SIZE) full = true;
-
 			return true;
 		}
 	}

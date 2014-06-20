@@ -1,3 +1,4 @@
+//Joseph Dollahon
 // Specification file for the BST class
 #ifndef BinarySearchTree_H
 #define BinarySearchTree_H
