@@ -152,7 +152,6 @@ char getChoice()
 	char choice = ' ';
 	userInput.readInChar(choice);
 	return choice;
-
 }
 
 void displayBoarder()
@@ -162,79 +161,49 @@ void displayBoarder()
 
 bool readFromFile(HashTable *hashTable, BinarySearchTree *bsTree)
 {
-
 	fstream inputFile;
 	string integerFromFile;
-
 	// Open specified file
 	inputFile.open("C:/Users/Joseph/Documents/Visual Studio 2013/Projects/TeamProjectComplete/TeamProjectComplete/Input.txt");
 	//inputFile.open("/Users/andreaborghi/Downloads/FinalProject/FinalProject/Input.txt");
-
-
 	// If inputFile was open successfully, change success to 1
 	if (!inputFile) {
 		cout << "The input file could not be open!" << endl;
-
 		return false;
 	};
-
 	// Loop to copy input data as long as the file can be read
 	while (getline(inputFile, integerFromFile, '\n')) {
 		sregex_token_iterator end;
-
 		regex pattern(REGEX_PATTERN);
-
 		for (sregex_token_iterator iter(integerFromFile.begin(), integerFromFile.end(), pattern); iter != end; ++iter){
 			if ((*iter).length() > 0) {
 				Data star;
 				Star *temp = new Star; // To temporarily store a Star
-
 				string data = (*iter); // To store the iterator's content
-
 				temp->setRank(atoi(data.c_str()));
-
 				++iter;
-
 				data = (*iter);
-
 				temp->setMagnitude(atof(data.c_str()));
-
 				++iter;
-
 				data = (*iter);
-
 				removeLeadingWhiteSpace(data);
-
 				temp->setName(data);
-
 				++iter;
-
 				data = (*iter);
-
 				removeLeadingWhiteSpace(data);
-
 				temp->setType(data);
-
 				++iter;
-
 				data = (*iter);
-
 				removeLeadingWhiteSpace(data);
-
 				temp->setConstellation(data);
-
 				star.starPtr = temp;
-
 				bsTree->BST_insert(star);
-
 				hashTable->insertValue(temp);
 			}
 		}
 	}
-
 	// Close the Input file
 	inputFile.close();
-
 	return true;
 
 }
@@ -385,9 +354,10 @@ bool deleteData(HashTable *hashTable, BinarySearchTree *bsTree)
  =====================================*/
 bool search(HashTable *hashTable)
 {
+	UserInput input;
 	string target;
 	cout << "Enter Star name to search for ";
-	cin >> target;
+	input.readInString(target);
 	Star * found = hashTable->searchForKey(target);
 
 

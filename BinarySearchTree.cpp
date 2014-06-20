@@ -204,23 +204,25 @@ bool BinarySearchTree::_deleteValue(string target)
 					else
 					{
 						parent = pWalk;
+						pWalk = pWalk->right;
 						while (pWalk->left != NULL)
 						{
 							temp = pWalk;
 							pWalk = pWalk->left;
 						}
-
+						//Copy left most node on the right subtree to the node that needs to be deleted.
 						parent->data.starPtr->setRank(pWalk->data.starPtr->getRank());
 						parent->data.starPtr->setType(pWalk->data.starPtr->getType());
 						parent->data.starPtr->setName(pWalk->data.starPtr->getName());
 						parent->data.starPtr->setMagnitude(pWalk->data.starPtr->getMagnitude());
 						parent->data.starPtr->setConstellation(pWalk->data.starPtr->getConstellation());
-
+						//Delete the node
 						delete pWalk;
+						//Set its parent to left pointer to null.
 						temp->left = NULL;
 					}
 				}
-				return true; // found
+				return true; // deleted
 			}
 		}
 	}
