@@ -23,7 +23,7 @@
 	Achernar
 	Gacrux
 	Becrux
-Here are the HashTable stats:
+ats:
 
 *** List initialized ***
 Inserting Acrux...

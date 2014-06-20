@@ -403,9 +403,11 @@ void HashTable::printTableElements(ostream& os)
 
 	// Loop that iterates thorugh bucketList and calls its element's
 	// member function to print their content to the output stream
+	/*
 	for (auto it = bucketList->begin(); it != bucketList->end(); ++it) {
 		(*it)->printBucketElements(os);
 	}
+	*/
 }
 
 /**~*~*

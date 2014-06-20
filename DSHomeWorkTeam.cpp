@@ -363,7 +363,7 @@ bool search(HashTable *hashTable)
  =====================================*/
 void displayByHash(HashTable *hashTable)
 {
-	hashTable->printTableElements(cout);
+	hashTable->printTableStructure(cout);
 }
 
 /*=====================================
@@ -393,9 +393,9 @@ void displayTree(BinarySearchTree *bsTree)
  =====================================*/
 void writeToFile(HashTable *hashTable)
 {
-	fstream output("/Users/andreaborghi/Downloads/FinalProject/FinalProject/Output.txt");
+	fstream output("Output.txt");
+	//fstream output("/Users/andreaborghi/Downloads/FinalProject/FinalProject/Output.txt");
 	hashTable->printTableElements(output);
-	hashTable->printStats(output);
 	output.close();
 }
 
