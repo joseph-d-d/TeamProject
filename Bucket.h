@@ -81,7 +81,7 @@ bool Bucket::eraseValue(Star * value)
 		// If the element at current position of the bucket is
 		// identical to the paramenter value, delete it
 		if (duplicateList[i] == value) {
-			delete duplicateList[i];
+			duplicateList[i] = NULL;
 
 			// Decrease the number of elements
 			--numElements;

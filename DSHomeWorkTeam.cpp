@@ -7,12 +7,9 @@
 #include <string>
 #include <regex>
 #include <fstream>
-#include "Queue.h"
-#include "Stack.h"
 #include "BinarySearchTree.h"
 #include "HashTable.h"
 #include "Star.h"
-#include "LinkedList.h"
 #include "UserInput.h"
 
 using namespace std;
@@ -61,8 +58,6 @@ struct listHead
 {
 	HashTable *hashTable;
 	BinarySearchTree *bsTree;
-	int count;
-	int arraySize;
 };
 
 int main()
@@ -73,7 +68,6 @@ int main()
 	bool displayMenu = true;
 	char choice;
 	readFromFile(list.hashTable, list.bsTree);
-
 	while ((choice = menu(displayMenu)) != 'Q')
 	{
 		displayMenu = false;
@@ -130,13 +124,10 @@ int main()
 		{
 			cout << endl << "What would you like to do next? 'M' for menu" << endl;
 		}
-
 	}
-
 	writeToFile(list.hashTable);
 	list.bsTree->~BinarySearchTree();
 	list.hashTable->~HashTable();
-
 	return 0;
 }
 
@@ -205,7 +196,6 @@ bool readFromFile(HashTable *hashTable, BinarySearchTree *bsTree)
 	// Close the Input file
 	inputFile.close();
 	return true;
-
 }
 
 
@@ -234,7 +224,6 @@ char menu(bool displayMenu)
 			<< "Q : to quit\n\n\n";
 		displayBoarder();
 	}
-
 	return getChoice();
 }
 
@@ -289,7 +278,6 @@ bool addTo(HashTable *hashTable, BinarySearchTree *bsTree)
 	userInput.readInString(type);
 	cout << "Constellation: ";
 	userInput.readInString(constellation);
-
 	Star *newStar = new Star(rank, name, magnitude, type, constellation);
 	Data data;
 	data.starPtr = newStar;
@@ -305,7 +293,6 @@ bool addTo(HashTable *hashTable, BinarySearchTree *bsTree)
 		cout << "The element you are trying to add already exists in the database!" << endl;
 		return false;
 	}
-
 	return true;
 }
 
@@ -334,7 +321,7 @@ bool deleteData(HashTable *hashTable, BinarySearchTree *bsTree)
 	cout << "Enter value to be deleted ";
 	input.readInString(target);
 	cout << endl;
-	//hashTable->deleteValue(hashTable->searchForKey(target));
+	hashTable->deleteValue(hashTable->searchForKey(target));
 	if (bsTree->deleteValue(target))
 	{
 		cout << "[" << target << "]" << " has been deleted" << endl;
@@ -344,7 +331,6 @@ bool deleteData(HashTable *hashTable, BinarySearchTree *bsTree)
 		cout << "[" <<  target << "]" << " does not exist in data base." << endl;
 	}
 	return true;
-
 }
 
 /*=====================================
@@ -359,19 +345,13 @@ bool search(HashTable *hashTable)
 	cout << "Enter Star name to search for ";
 	input.readInString(target);
 	Star * found = hashTable->searchForKey(target);
-
-
 	if (found) {
 		cout << "The following element was retrieved from the table:" << endl;
 		cout << found->toString() << endl;
-
-
 	}
 	else {
 		cout << target << " not found in the Hash Table." << endl;
 	}
-
-
 	return true;
 }
 
@@ -414,10 +394,8 @@ void displayTree(BinarySearchTree *bsTree)
 void writeToFile(HashTable *hashTable)
 {
 	fstream output("/Users/andreaborghi/Downloads/FinalProject/FinalProject/Output.txt");
-
 	hashTable->printTableElements(output);
 	hashTable->printStats(output);
-
 	output.close();
 }
 

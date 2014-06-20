@@ -277,7 +277,6 @@ bool HashTable::insertValue(Star * value)
 		// to insert the parameter value in bucketList
 		return insertInBucketList(value);
 	}
-
 	return true;
 }
 
@@ -294,46 +293,53 @@ bool HashTable::deleteValue(Star * value)
 {
 	// Add a new statistic
 	stringstream ss;
-	ss << "Deleting " << *value << "...";
-	stats->push_back(ss.str());
+	if (value)
+	{
 
-	// Compute the key value of the paramenter element
-	int key = hash(value);
+		ss << "Deleting " << *value << "...";
+		stats->push_back(ss.str());
 
-	// If the computer key is too big for the table size, add
-	// a new statistic and return false
-	if (key < 0 || key > TABLE_SIZE) {
-		stats->push_back(to_string(key) + " is too big");
+		// Compute the key value of the paramenter element
+		int key = hash(value);
 
+		// If the computer key is too big for the table size, add
+		// a new statistic and return false
+		if (key < 0 || key > TABLE_SIZE) {
+			stats->push_back(to_string(key) + " is too big");
+
+			return false;
+		}
+
+		// If the value contained at the specified key index in
+		// the main table is identical to the paramenter value,
+		// delete it
+		if (table[key] == value) {
+			/*
+			delete table[key];
+			*/
+			table[key] = NULL;
+
+			// Decrease the size of the Hash Table
+			--size;
+
+			// Add a new statistic
+			stats->push_back("Deleted");
+
+		}
+		else {
+			// Add a new statistic informing the user that a collision happened
+			stats->push_back("The value is not the main Hash Table. Searching the buckets...");
+
+			// Return the result of calling the private member function
+			// to delete the parameter value from bucketList
+			return deleteFromBucketList(value);
+		}
+		return true;
+	}
+	else
+	{
 		return false;
 	}
-
-	// If the value contained at the specified key index in
-	// the main table is identical to the paramenter value,
-	// delete it
-	if (table[key] == value) {
-		/*
-		delete table[key];
-        */
-        table[key] = NULL;
-
-		// Decrease the size of the Hash Table
-		--size;
-
-		// Add a new statistic
-		stats->push_back("Deleted");
-
-	}
-	else {
-		// Add a new statistic informing the user that a collision happened
-		stats->push_back("The value is not the main Hash Table. Searching the buckets...");
-
-		// Return the result of calling the private member function
-		// to delete the parameter value from bucketList
-		return insertInBucketList(value);
-	}
-
-	return true;
 }
 
 /**~*~*
