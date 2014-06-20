@@ -35,6 +35,7 @@ const string REGEX_PATTERN = "[0-9-.A-z ]+";
 //Function declorations
 
 char getChoice();
+void displayBoarder();
 bool readFromFile(HashTable *hashTable, BinarySearchTree *bsTree);
 char menu(bool display);
 void getInput(double &number);
@@ -79,32 +80,48 @@ int main()
 		switch (choice)
 		{
 		case ADD_DATA:
+			displayBoarder();
 			addTo(list.hashTable, list.bsTree);
+			displayBoarder();
 			break;
 		case DELETE:
+			displayBoarder();
 			if (deleteData(list.hashTable, list.bsTree))
 			{
 				cout << "Data deleted" << endl;
 			}
+			displayBoarder();
 			break;
 		case SEARCH:
+			displayBoarder();
 			search(list.hashTable);
+			displayBoarder();
 			break;
 		case LIST_HASH:
+			displayBoarder();
 			displayByHash(list.hashTable);
+			displayBoarder();
 			break;
 		case LIST_SORTED:
+			displayBoarder();
 			displaySortedList(list.bsTree);
+			displayBoarder();
 			break;
 		case DISPLAY_TREE:
+			displayBoarder();
 			displayTree(list.bsTree);
+			displayBoarder();
 			break;
 		case WRITE_TO_FILE:
+			displayBoarder();
 			writeToFile(list.hashTable);
 			cout << "Contents of the Hash Table writtent to file" << endl;
+			displayBoarder();
 			break;
 		case HASH_STATS:
+			displayBoarder();
 			hashStats(list.hashTable);
+			displayBoarder();
 			break;
 		case DISPLAY_MENU:
 			displayMenu = true;
@@ -139,6 +156,11 @@ char getChoice()
 	userInput.readInChar(choice);
 	return choice;
 
+}
+
+void displayBoarder()
+{
+	cout << "===========================================================================" << endl << endl;
 }
 
 bool readFromFile(HashTable *hashTable, BinarySearchTree *bsTree)
@@ -232,7 +254,8 @@ char menu(bool displayMenu)
 {
 	if (displayMenu == true)
 	{
-		cout << "\n\nEnter the letter for the corresponding choice\n\t"
+		displayBoarder();
+		cout << "\nEnter the letter for the corresponding choice\n\t"
 			<< "A : to add data\n\t"
 			<< "D : to delete data\n\t"
 			<< "S : to search\n\t"
@@ -242,7 +265,8 @@ char menu(bool displayMenu)
 			<< "W : write data to file\n\t"
 			<< "I : statistic of the hash table\n\t"
 			<< "M : to display the menu again\n\t"
-			<< "Q : to quit\n\n\t";
+			<< "Q : to quit\n\n\n";
+		displayBoarder();
 	}
 
 	return getChoice();

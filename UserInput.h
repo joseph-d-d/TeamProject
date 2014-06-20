@@ -153,5 +153,6 @@ bool UserInput::readInChar(char &outPut)
 	{
 		isValidInput = false;
 	}
+	cout << "        [" << outPut << "]" << " was entered" << endl << endl;
 	return isValidInput;
 }
