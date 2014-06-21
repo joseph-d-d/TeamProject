@@ -1,4 +1,9 @@
 //Joseph Dollahon
+/*========================Documentation=============================================
+The purpose of the Binary Search Tree in respects to the rest of the project is to
+store pointers to the Stars that have been allocated and display them in sorted
+order by name.  It is also responsible for deleting the allocated data when a star is removed.
+==================================================================================*/
 // Specification file for the BST class
 #ifndef BinarySearchTree_H
 #define BinarySearchTree_H

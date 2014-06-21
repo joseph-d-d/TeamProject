@@ -1,6 +1,7 @@
 //Joseph Dollahon
 //Andrea Borghi
 //5-11-2014
+
 //Main for Team Project
 
 #include <iostream>
@@ -35,7 +36,6 @@ char getChoice();
 void displayBoarder();
 bool readFromFile(HashTable *hashTable, BinarySearchTree *bsTree);
 char menu(bool display);
-void getInput(double &number);
 bool addTo(HashTable *hashTable, BinarySearchTree *bsTree);
 bool deleteData(HashTable *hashTable, BinarySearchTree *bsTree);
 bool search(HashTable *hashTable);
@@ -46,13 +46,6 @@ void writeToFile(HashTable *hashTable);
 void hashStats(HashTable *hashTable);
 void removeLeadingWhiteSpace(string& str);
 
-/*
- Processing is to be menu driven with the following options: (1).
- Add new data, (2). Delete data, (3).
- Find and display one element using the primary key; if a secondary key is being used, search by that key too.
- (4). List data in hash table sequence, (5). List data in key sequence (sorted),
- (6). Print indented tree (7). Write data to a file. (8). Hash statistics. (9). Quit.
- */
 
 struct listHead
 {
@@ -225,23 +218,6 @@ char menu(bool displayMenu)
 		displayBoarder();
 	}
 	return getChoice();
-}
-
-
-/*=====================================
- Pre: a double by reference.
- Returns: a double by reference.
- Purpose: checks if the number entered is valid.
- =====================================*/
-void getInput(double number)
-{
-	cout << "Enter value <double> ";
-	while (!(cin >> number))
-	{
-		cout << "Ivalid input";
-		cin.clear();
-		cin.ignore(256, '\n');
-	}
 }
 
 /*=====================================

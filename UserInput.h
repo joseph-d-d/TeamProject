@@ -1,5 +1,8 @@
 //Joseph Dollahon
-
+/*========================Documentation=============================================
+The purpose of the Input class in respects to the rest of the project is to it 
+read in input from the user and validate that it is the correct kind of input that was requested.
+==================================================================================*/
 #include <iostream>
 #include <string>
 #include <stdlib.h>
@@ -88,7 +91,7 @@ bool UserInput::readInDouble(double &outPut)
 	bool isValidInput = true;
 	string userInput;
 	getline(cin, userInput);
-	while (i < userInput.length() || isValidInput == false)
+	while (i < userInput.length() && isValidInput == true)
 	{
 		if (!isdigit(userInput[i]))
 		{
@@ -102,6 +105,10 @@ bool UserInput::readInDouble(double &outPut)
 				{
 					decimalPointAlreadyFound = true;
 				}
+			}
+			else
+			{
+				isValidInput = false;
 			}
 		}
 		i++;
