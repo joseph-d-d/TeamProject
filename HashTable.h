@@ -1,5 +1,4 @@
 //Documentation for HashTable and Bucket class
-//
 //The HashTable, as part of the wider data structure, allows to keep the search of an element stored in the database linear in as many cases as possible. To achieve so, the HashTable has a function called Hash which calculates a unique position in the array for a key, which in this case is the Star class “Name” field; in the occurrence that two different keys result in the same index, the Bucket class allows the HashTable to have an extended “overflow” array to store the synonyms of that key. In that case, the big O notation for the search becomes linear, but limited in size.
 
 #include <iostream>
@@ -10,7 +9,6 @@
 #include "Bucket.h"
 
 const int TABLE_SIZE = 31;
-const int PRIME_NUMBER = 13;
 
 using namespace std;
 
@@ -310,9 +308,8 @@ bool HashTable::deleteValue(Star * value)
 		// the main table is identical to the paramenter value,
 		// delete it
 		if (table[key] == value) {
-			/*
 			delete table[key];
-			*/
+            
 			table[key] = NULL;
 
 			// Decrease the size of the Hash Table
@@ -394,16 +391,14 @@ void HashTable::printTableElements(ostream& os)
 	// Loop that iterates through the main table and prints its content
 	// if it is not NULL
 	for (int i = 0; i < TABLE_SIZE; ++i) {
-		if (table[i] != NULL) os << "\t" << *table[i] << endl;
+		if (table[i] != NULL) os << "\t" << table[i]->toString() << endl;
 	}
 
 	// Loop that iterates thorugh bucketList and calls its element's
 	// member function to print their content to the output stream
-	/*
 	for (auto it = bucketList->begin(); it != bucketList->end(); ++it) {
 		(*it)->printBucketElements(os);
 	}
-	*/
 }
 
 /**~*~*

@@ -1,10 +1,5 @@
-//
-// Bucket.h
-// Data Structures Homework #5
-//
-// Created by Andrea Borghi on 6/3/14.
-// Copyright (c) 2014 Andrea Borghi. All rights reserved.
-//
+//Andrea Borghi
+//Declaration file for the Bucket class
 
 #include <iostream>
 
@@ -80,6 +75,8 @@ bool Bucket::eraseValue(Star * value)
 		// If the element at current position of the bucket is
 		// identical to the paramenter value, delete it
 		if (duplicateList[i] == value) {
+            delete duplicateList[i];
+            
 			duplicateList[i] = NULL;
 
 			// Decrease the number of elements
@@ -149,7 +146,7 @@ output stream
 void Bucket::printBucketElements(ostream& os)
 {
     for (int i = 0; i < BUCKET_SIZE; ++i) {
-		if (duplicateList[i] != NULL) os << "\t" << *duplicateList[i] << endl;
+		if (duplicateList[i] != NULL) os << "\t" << duplicateList[i]->toString() << endl;
 	}
 }
 
