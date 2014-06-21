@@ -25,8 +25,6 @@ const char WRITE_TO_FILE = 'W';
 const char HASH_STATS = 'I';
 const char DISPLAY_MENU = 'M';
 
-const char QUIT = 'Q';
-
 const string REGEX_PATTERN = "[0-9-.A-z ]+";
 
 //Function declorations
@@ -155,8 +153,8 @@ bool readFromFile(HashTable *hashTable, BinarySearchTree *bsTree)
 	fstream inputFile;
 	string integerFromFile;
 	// Open specified file
-	inputFile.open("C:/Users/Joseph/Documents/Visual Studio 2013/Projects/TeamProjectComplete/TeamProjectComplete/Input.txt");
-	//inputFile.open("/Users/andreaborghi/Downloads/FinalProject/FinalProject/Input.txt");
+	//inputFile.open("C:/Users/Joseph/Documents/Visual Studio 2013/Projects/TeamProjectComplete/TeamProjectComplete/Input.txt");
+	inputFile.open("/Users/andreaborghi/Documents/DAC - Data Structures/TeamProject/Input.txt");
 	// If inputFile was open successfully, change success to 1
 	if (!inputFile) {
 		cout << "The input file could not be open!" << endl;
@@ -316,7 +314,6 @@ void removeLeadingWhiteSpace(string& str)
 bool deleteData(HashTable *hashTable, BinarySearchTree *bsTree)
 {
 	UserInput input;
-	Data star;
 	string target;
 	cout << "Enter value to be deleted ";
 	input.readInString(target);
@@ -393,8 +390,8 @@ void displayTree(BinarySearchTree *bsTree)
  =====================================*/
 void writeToFile(HashTable *hashTable)
 {
-	fstream output("Output.txt");
-	//fstream output("/Users/andreaborghi/Downloads/FinalProject/FinalProject/Output.txt");
+	//fstream output("Output.txt");
+	fstream output("/Users/andreaborghi/Documents/DAC - Data Structures/TeamProject/Output.txt");
 	hashTable->printTableElements(output);
 	output.close();
 }

@@ -1,10 +1,6 @@
+//Documentation for HashTable and Bucket class
 //
-//  HashTable.h
-//  Data Structures Homework #5
-//
-//  Created by Andrea Borghi on 6/3/14.
-//  Copyright (c) 2014 Andrea Borghi. All rights reserved.
-//
+//The HashTable, as part of the wider data structure, allows to keep the search of an element stored in the database linear in as many cases as possible. To achieve so, the HashTable has a function called Hash which calculates a unique position in the array for a key, which in this case is the Star class “Name” field; in the occurrence that two different keys result in the same index, the Bucket class allows the HashTable to have an extended “overflow” array to store the synonyms of that key. In that case, the big O notation for the search becomes linear, but limited in size.
 
 #include <iostream>
 #include <sstream>
@@ -468,5 +464,5 @@ void HashTable::printStats(ostream& os)
 
 	os << "Full buckets: " << fullBuckets << endl;
 
-	os << "\nTotal collisions while buiding the list: " << collisions << endl;
+	os << "\nTotal collisions while building the list: " << collisions << endl;
 }
