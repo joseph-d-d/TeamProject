@@ -2,8 +2,6 @@
 // Implementation file for the BST class
 #include <iostream>  // For cout and NULL
 #include "BinarySearchTree.h"
-#include "Queue.h"
-#include "Stack.h"
 #include <iomanip>
 #include "Star.h"
 
@@ -13,7 +11,6 @@ using namespace std;
    This function calls a recursive function to traverse the
    tree in inorder
 *~**/
-
 void BinarySearchTree::BST_InorderTraverse() const
 {
     _BST_InorderTraverse(root);
@@ -23,7 +20,6 @@ void BinarySearchTree::BST_InorderTraverse() const
    Inorder Traversal of the Binary Tree:
    Left-Root-Right
 *~**/
-
 void BinarySearchTree::_BST_InorderTraverse(BST_Node *root) const
 {
     if (root)
@@ -35,12 +31,9 @@ void BinarySearchTree::_BST_InorderTraverse(BST_Node *root) const
     }
 }
 
-
-
 /**~*~*
    Insert data into a BST
 *~**/
-
 void BinarySearchTree::BST_insert(Data dataIn)
 {
 	BST_Node *newNode;
@@ -77,12 +70,10 @@ void BinarySearchTree::BST_insert(Data dataIn)
 	count++;
 }
 
-
 /**~*~*
    Destructor
    This function calls a recursive function to delete all nodes in the binary tree
 *~**/
-
 BinarySearchTree::~BinarySearchTree()
 {
     if (root)
@@ -92,7 +83,6 @@ BinarySearchTree::~BinarySearchTree()
 /**~*~*
    This function traverses the binary tree in postorder and deletes every node
 *~**/
-
 void BinarySearchTree::_BST_Destroy(BST_Node *root)
 {
     if (root)
@@ -105,10 +95,9 @@ void BinarySearchTree::_BST_Destroy(BST_Node *root)
 }
 
 /**~*~*
-Search a BST for a given target: if found, returns true and passes back
-data, otherwise returns false. It calls the private _search to locate the node.
+Search a BST for a given target to delete: if found and deleted it returns true
+otherwise returns false. It calls the private _deleteValue to locate and delete the node.
 *~**/
-
 bool BinarySearchTree::deleteValue(string target)
 {
 	bool deleted = _deleteValue(target);
@@ -122,11 +111,10 @@ bool BinarySearchTree::deleteValue(string target)
 
 
 /**~*~*
-Locates the node that contains a given target in a BST:
-- if found returns a pointer to that node
-- if not found returns NULL
+Locates the node that contains a given target in a BST and deletes it:
+- if found returns true and deleted
+- if not found returns false.
 *~**/
-
 bool BinarySearchTree::_deleteValue(string target)
 {
 	if (!root) // tree is empty

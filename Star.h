@@ -1,5 +1,9 @@
 ////
 //  Star.h
+/*========================Documentation=============================================
+The Star class is the class that holds all of our data for the stars values. 
+It also has overloaded operators for comparison and display.
+==================================================================================*/
 //  Data Structure Final Project
 //
 //  Created by Andrea Borghi on 5/19/14.
