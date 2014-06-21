@@ -23,3 +23,4 @@
 	#9 - Name: Achernar, Magnitude: 0.450000, Type: blue main-sequence star, Constellation: Eridanus
 	#25 - Name: Gacrux, Magnitude: 1.590000, Type: a red giant star in, Constellation: Crux
 	#19 - Name: Becrux, Magnitude: 1.250000, Type: a blue subgiant star in, Constellation: Crux
+	#1 - Name: Lucky Star, Magnitude: 0.820000, Type: A very bright vintage star, Constellation: Madonna
